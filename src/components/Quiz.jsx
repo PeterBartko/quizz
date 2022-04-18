@@ -39,7 +39,7 @@ export default function Quiz({show, setScore}) {
     if (time == 0) {
       if (!done) {
         ques.current.forEach(q => {
-          if (q.current?.innerText !== findRight(questions[icko])) {
+          if (q.current?.innerText !== questions[icko].find(q => q.res).answ) {
             q.current?.classList.add('opacity-30')
           }
         })
