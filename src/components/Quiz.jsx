@@ -3,7 +3,7 @@ import questions from '../questions.js'
 import { BsXCircle as Wrong, BsCheckCircle as Right } from "react-icons/bs"
 import { useState, createRef, useEffect, useRef } from "react"
 
-export default function Quiz({show, score}) {
+export default function Quiz({show, setScore}) {
   const [icko, setIcko] = useState(0)
   const [done, setDone] = useState(false)
   const [time, setTime] = useState(15)
@@ -18,7 +18,7 @@ export default function Quiz({show, score}) {
     if (res) {
       e.target.classList.add('right')
       e.target.children[0].classList.remove('hidden')
-      score(s => s+1)
+      setScore(s => s+1)
     } else {
       e.target.classList.add('wrong')
       e.target.children[0].classList.remove('hidden')
